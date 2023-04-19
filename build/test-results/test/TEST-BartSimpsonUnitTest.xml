@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BartSimpsonUnitTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-04-06T00:21:46" hostname="CSS-SL-G4CD303" time="0.048">
+  <properties/>
+  <testcase name="testingBartSimpsonParameterConstructor()" classname="BartSimpsonUnitTest" time="0.04"/>
+  <testcase name="testingBartSimpsonNoParameterConstructor()" classname="BartSimpsonUnitTest" time="0.003"/>
+  <testcase name="test_spawn()" classname="BartSimpsonUnitTest" time="0.002"/>
+  <system-out><![CDATA[Creating Bart Simpson with 14 parameter constructors
+
+-- Testing Getters
+
+-- Testing Health Modifier
+-- Testing Damage
+-- Testing Damage Modifier
+-- Testing Luck
+-- Testing X Coordinate
+-- Testing Y Coordinate
+-- Testing Movement
+-- Testing Movement Modifier
+
+-- Testing Setters
+
+-- Testing Symbol
+-- Testing Damage Modifier
+-- Testing Recruit
+-- Testing Distract
+Creating Bart Simpson with 0 parameter constructor
+
+-- Testing Getters
+
+-- Testing Symbol
+-- Testing Name
+-- Testing Health
+-- Testing Number Times Spawned
+-- Testing Distract
+-- Testing Recruit
+Testing spawn
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

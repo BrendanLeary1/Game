@@ -1,0 +1,30 @@
+6Creating Bart Simpson with 14 parameter constructors
+
+-- Testing Getters
+
+-- Testing Health Modifier
+-- Testing Damage
+-- Testing Damage Modifier
+-- Testing Luck
+-- Testing X Coordinate
+-- Testing Y Coordinate
+-- Testing Movement
+-- Testing Movement Modifier
+
+-- Testing Setters
+
+-- Testing Symbol
+-- Testing Damage Modifier
+-- Testing Recruit
+-- Testing Distract
+4Creating Bart Simpson with 0 parameter constructor
+
+-- Testing Getters
+
+-- Testing Symbol
+-- Testing Name
+-- Testing Health
+!-- Testing Number Times Spawned
+-- Testing Distract
+-- Testing Recruit
+Testing spawn
