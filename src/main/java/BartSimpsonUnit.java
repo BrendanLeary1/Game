@@ -1,4 +1,4 @@
-public class BartSimpsonUnit extends Unit {
+public class BartSimpsonUnit extends Recruiter {
     private int numTimesSpawned;
     private boolean distract;
     private boolean recruit;
@@ -6,15 +6,16 @@ public class BartSimpsonUnit extends Unit {
 
     public BartSimpsonUnit(char symbol, String name, double health, double healthModifier, double damage,
                            double damageModifier, int luck, int xCor, int yCor, int movement,
-                           int movementModifier, int numTimesSpawned, boolean distract, boolean recruit, String teamColor) {
-        super(symbol, name, health, healthModifier, damage, damageModifier, luck, xCor, yCor, movement, movementModifier, teamColor);
+                           int movementModifier, int numTimesSpawned, boolean distract, boolean recruit, String teamColor,
+                           int numRecruits) {
+        super(symbol, name, health, healthModifier, damage, damageModifier, luck, xCor, yCor, movement, movementModifier, teamColor, numRecruits);
         this.numTimesSpawned = numTimesSpawned;
         this.distract = distract;
         this.recruit = recruit;
 
     }
     public BartSimpsonUnit() {
-        this('B', "Bart Simpson", 100.0, 0.0, 25.0, 0.0, 0, 5, 5, 1, 0, 0, true, true, "none");
+        this('B', "Bart Simpson", 100.0, 0.0, 25.0, 0.0, 0, 5, 5, 1, 0, 0, true, true, "none", 0);
     }
     public int getNumTimesSpawned(){
         return this.numTimesSpawned;
@@ -51,7 +52,7 @@ public class BartSimpsonUnit extends Unit {
     public BartSimpsonUnit spawn() {
         BartSimpsonUnit newBart = new BartSimpsonUnit('b', "Bart Simpson", 100.0,
                 5.0, 25.0, 10.0, 0, 1, 1, 1,
-                1, 0, true, true, "none");
+                1, 0, true, true, "none", 0);
         this.numTimesSpawned += 1;
         return newBart;
     }
