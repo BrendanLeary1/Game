@@ -5,16 +5,16 @@ public class Game {
     private Player playerOne;
     private Player playerTwo;
 
-    private void MakeBoard(int rows, int cols){
-        GameBoard board = new GameBoard(rows, cols);
+    private void initializeGameBoard(int rows, int cols){
+        this.gameBoard = new GameBoard(rows, cols);
 
         for (Unit unit : playerOne.getPlayersTeam().getTeamUnits()) {
-            BoardSquare square = gameBoard.findRandomEmptySpace();
+            BoardSquare square = this.gameBoard.findRandomEmptySpace();
             square.setUnit(unit);
             //unit.setSquare(square);
         }
         for (Unit unit : playerTwo.getPlayersTeam().getTeamUnits()) {
-            BoardSquare square = gameBoard.findRandomEmptySpace();
+            BoardSquare square = this.gameBoard.findRandomEmptySpace();
             square.setUnit(unit);
             //unit.setSquare(square);
         }
