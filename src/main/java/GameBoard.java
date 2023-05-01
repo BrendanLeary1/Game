@@ -7,11 +7,10 @@ public class GameBoard {
         this.numRows = numRows;
         this.numColumns = numColumns;
         this.squares = new BoardSquare[numRows][numColumns];
+        this.setUpEmptyBoard();
     }
 
-    public GameBoard() {
-
-    }
+    public GameBoard() {}
 
     // Accessors
     public int getNumRows() {
@@ -52,16 +51,17 @@ public class GameBoard {
     }
 
     public BoardSquare findRandomEmptySpace() {
-        BoardSquare square = new BoardSquare("purple");
+        BoardSquare temp = this.squares[(int) (Math.random() * (numRows - 1))][(int) (Math.random() * (numColumns - 1))];
         boolean foundEmptySquare = false;
-        while (!foundEmptySquare) {
-            BoardSquare temp = this.squares[(int) (Math.random() * (numRows - 1))][(int) (Math.random() * (numColumns - 1))];
-            if(!temp.isEmptySpace()) {
-                square = temp;
+        while (! foundEmptySquare) {
+            if (temp.isEmptySpace()) {
+                temp = this.squares[(int) (Math.random() * (numRows - 1))][(int) (Math.random() * (numColumns - 1))];
+            }
+            else {
                 foundEmptySquare = true;
             }
         }
-        return square;
+        return temp;
     }
 
     // toString method from instructions with added @Override
