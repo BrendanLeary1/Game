@@ -9,7 +9,7 @@
  *
  * @since 2023-03-07
  */
-public class TomJerryUnit extends Unit {
+public class TomJerryUnit extends Attacker {
     private boolean homingRocket;
     private boolean offerCheese;
     private boolean hiding;

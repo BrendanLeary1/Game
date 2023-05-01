@@ -6,7 +6,7 @@ public class Game {
     private Player playerTwo;
 
     private void MakeBoard(int rows, int cols){
-        GameBoard board = new GameBoard();
+        GameBoard board = new GameBoard(rows, cols);
 
         for (Unit unit : playerOne.getPlayersTeam().getTeamUnits()) {
             BoardSquare square = gameBoard.findRandomEmptySpace();
@@ -71,47 +71,37 @@ public class Game {
         return retString.toString();
     }
 
-    public boolean isAWinner() {
-        if ((playerOne.getPlayersTeam().getTeamUnits().size() == 0) ||
-                (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)) {
+    public boolean isAWinner(){
+        //XOR operator
+        if (((playerOne.getPlayersTeam().getTeamUnits().size() > 0) && (playerTwo.getPlayersTeam().getTeamUnits().size() == 0))
+                ||
+                ((playerOne.getPlayersTeam().getTeamUnits().size() == 0) && (playerTwo.getPlayersTeam().getTeamUnits().size() > 0 ))){
             return true;
         }
-        else{
-            return false;
-        }
+        return false;
     }
 
-    public Player getWinner() {
-        if (playerOne.getPlayersTeam().getTeamUnits().size() > playerTwo.getPlayersTeam().getTeamUnits().size()) {
-            return this.playerOne;
+    public Player getWinner(){
+        if(playerOne.getPlayersTeam().getTeamUnits().size() > playerTwo.getPlayersTeam().getTeamUnits().size()) {
+            System.out.println("Player 1 is Winning!");
+            return playerOne;
+        } else if(playerTwo.getPlayersTeam().getTeamUnits().size() > playerOne.getPlayersTeam().getTeamUnits().size()) {
+            System.out.println("Player 2 is Winning!");
+            return playerTwo;
+        } else {
+            System.out.println("Player 1 And Player 2 Are Tied! returning current player");
+            return getCurrentPlayer();
         }
-        else if (playerTwo.getPlayersTeam().getTeamUnits().size() > playerOne.getPlayersTeam().getTeamUnits().size()) {
-            return this.playerTwo;
-        }
-        else {
-            return null;
-        }
+
     }
 
-    public boolean isGameEnded() {
-        // ASK ABOUT THIS AND isAWinner IN LAB
-        if (isGameEnded()) {
+    public boolean isGameEnded(){
+        if (((playerOne.getPlayersTeam().getTeamUnits().size()) == 0) || (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)){
             return true;
         }
-        else {
-            return false;
-        }
+        return false;
     }
-
-    // that has no parameters and returns a boolean. The method executes an or comparison
-    // (one or the other AND both) of the players team sizes. If one of the two players hits
-    // a team size of 0, we know there is a winner or a tie exists. Either way, the game has ended.
-
-
 
 
 
 }
-
-
-
