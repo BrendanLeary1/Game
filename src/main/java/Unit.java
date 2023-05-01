@@ -120,5 +120,12 @@ public abstract class Unit {
         return this.teamColor + " " + this.symbol;
     }
 
+    public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
+        return true;
+    }
+
+    public boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol) {
+        return true;
+    }
 
 }
