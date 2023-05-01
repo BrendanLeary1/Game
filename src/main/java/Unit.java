@@ -43,6 +43,8 @@ public abstract class Unit {
 
     public abstract Unit spawn();
 
+    public abstract boolean canSpawn();
+
     public char getSymbol(){
         return this.symbol;
     }
