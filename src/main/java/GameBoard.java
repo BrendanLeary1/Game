@@ -9,6 +9,10 @@ public class GameBoard {
         this.squares = new BoardSquare[numRows][numColumns];
     }
 
+    public GameBoard() {
+
+    }
+
     // Accessors
     public int getNumRows() {
         return this.numRows;
