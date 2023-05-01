@@ -1,9 +1,6 @@
 public class Rules {
     public static boolean checkValidAction(Game game, int fromRow, int fromCol, int toRow, int toCol, char action)  {
-         /** Checks if the action char is not one of the valid options (M,S,R,A)
-          *  If not, return false
-          *  Otherwise, continue
-          **/
+         // Checks if the action char is not one of the valid options (M,S,R,A)
          if(action != 'M' && action != 'S' && action != 'R' && action != 'A') {
              return false;
          } else {
