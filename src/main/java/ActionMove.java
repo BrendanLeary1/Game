@@ -5,7 +5,7 @@ public class ActionMove extends Action{
 
     @Override
     public void performAction() {
-        game.getGameBoard().getSquares()[toRow][toCol].setUnit(game.getGameBoard().getSquares()[fromRow][fromCol]);
+        game.getGameBoard().getSquares()[toRow][toCol].setUnit(game.getGameBoard().getSquares()[fromRow][fromCol].getUnit());
         game.getGameBoard().getSquares()[fromRow][fromCol] = null;
         game.changeTurn();
     }
