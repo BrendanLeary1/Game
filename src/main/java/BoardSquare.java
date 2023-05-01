@@ -3,7 +3,8 @@ public class BoardSquare {
     private Unit unit;
     private String squareColor;
     public BoardSquare(String squareColor) {
-        this.emptySpace = false;
+        this.squareColor = squareColor;
+        this.emptySpace = true;
     }
 
     public Unit getUnit(){
@@ -14,6 +15,12 @@ public class BoardSquare {
     }
     public String getSquareColor() {
         return this.squareColor;
+    }
+    public void setSquareColor(String squareColor) {
+        this.squareColor = squareColor;
+    }
+    public void setEmptySpace(boolean emptySpace) {
+        this.emptySpace = emptySpace;
     }
 
     public void setUnit(Unit unit) {
@@ -30,10 +37,11 @@ public class BoardSquare {
 
     @Override
     public String toString() {
-        if(this.unit != null) {
-            return "-" + this.unit.toString();
-        } else {
+        if (this.unit == null) {
             return "-------";
+        }
+        else {
+            return "-" + this.getUnit().toString();
         }
     }
 
