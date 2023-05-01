@@ -65,4 +65,6 @@ public class TomJerryUnit extends Unit {
                 1, true, true, true, "none");
         return newTomJerry;
     }
+
+    public boolean canSpawn(){ return true; }
 }
