@@ -48,7 +48,7 @@ public class Rules {
                                 // ***** Recruit
                                 if(action == 'R') {
                                     // Checks whether the from unit can recruit
-                                    if() {
+                                    if(fromUnit instanceof BartSimpsonUnit) {
                                         // Checks whether the from unit has a valid recruit path
                                         if(fromUnit.validRecruitPath(fromRow, fromCol, toRow, toCol)) {
                                             return true;
@@ -61,7 +61,7 @@ public class Rules {
                                 // ***** Attack
                                 } else {
                                     // Checks whether the from unit can attack
-                                    if() {
+                                    if(fromUnit instanceof TomJerryUnit) {
                                         // Checks whether the from unit has a valid attack path
                                         if(fromUnit.validAttackPath(fromRow, fromCol, toRow, toCol)) {
                                             return true;
