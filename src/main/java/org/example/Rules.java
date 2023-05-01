@@ -64,7 +64,7 @@ public class Rules {
                                     if() {
                                         // Checks whether the from unit has a valid attack path
                                         if(fromUnit.validAttackPath(fromRow, fromCol, toRow, toCol)) {
-                                            return false;
+                                            return true;
                                         } else {
                                             return false;
                                         }
