@@ -113,7 +113,7 @@ public class TextView {
         System.out.println("Please enter the row index of the square " + descript + ".");
         this.toRow = getValidInt(0, numRows, scnr);
         System.out.println("Please enter the column index of the square " + descript + ".");
-        this.toRow = getValidInt(0, numCols, scnr);
+        this.toCol = getValidInt(0, numCols, scnr);
     }
     public void updateView(Game game) {
         System.out.println(game);
