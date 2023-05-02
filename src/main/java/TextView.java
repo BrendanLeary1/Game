@@ -100,7 +100,7 @@ public class TextView {
         this.fromRow = getValidInt(0, numRows, scnr);
         System.out.println("Please enter your square's column index. ");
         this.fromCol = getValidInt(0,numCols, scnr);
-        String descript;
+        String descript = "";
         if(action == 'M') {
             descript = "you will move to";
         } else if (action == 'S') {
