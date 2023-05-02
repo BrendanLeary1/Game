@@ -1,11 +1,16 @@
 public class ActionRecruit extends Action{
 
-    public ActionRecruit(Game actionGame, int fromRow, int fromCol, int toRow, int toCol) {
-        super(actionGame, fromRow, fromCol, toRow, toCol);
+    public ActionRecruit(Game game, int fromRow, int fromCol, int toRow, int toCol) {
+        super(game, fromRow, fromCol, toRow, toCol);
     }
 
     @Override
     public void performAction() {
-        //this.actionGame[toRow][toCol]
+        Player otherPlayer = game.getOpponentPlayer();
+        Player recruitingPlayer = game.getCurrentPlayer();
+        Unit recruited = game.getGameBoard().getSquares()[toRow][toCol].getUnit();
+        otherPlayer.getPlayersTeam().removeUnitsFromTeam(recruited);
+        recruitingPlayer.getPlayersTeam().addUnitsToTeam(recruited);
+        game.changeTurn();
     }
 }

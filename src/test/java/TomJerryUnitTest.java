@@ -47,7 +47,7 @@ class TomJerryUnitTest {
         System.out.println("Creating Tom & Jerry with 14 parameter constructor");
         TomJerryUnit tj = new TomJerryUnit('T', "Tom And Jerry", 100.0, 10.0,
                 25.0, 5.0, 1, 1, 1, 0, 1,
-                true, true, false, "");
+                true, true, false, "", 0);
         System.out.println();
         System.out.println("-- Testing Getters");
         System.out.println();
