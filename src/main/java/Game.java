@@ -73,30 +73,28 @@ public class Game {
 
     public boolean isAWinner(){
         //XOR operator
-        if (((playerOne.getPlayersTeam().getTeamUnits().size() > 0) && (playerTwo.getPlayersTeam().getTeamUnits().size() == 0))
-                ||
-                ((playerOne.getPlayersTeam().getTeamUnits().size() == 0) && (playerTwo.getPlayersTeam().getTeamUnits().size() > 0 ))){
+        if ((playerOne.getPlayersTeam().getTeamUnits().size() == 0) ^ (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)) {
             return true;
         }
         return false;
     }
 
     public Player getWinner(){
-        if(playerOne.getPlayersTeam().getTeamUnits().size() > playerTwo.getPlayersTeam().getTeamUnits().size()) {
-            System.out.println("Player 1 is Winning!");
+        if ((playerOne.getPlayersTeam().getTeamUnits().size() > 0) && (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)) {
+            System.out.println("Player 1 Wins!");
             return playerOne;
-        } else if(playerTwo.getPlayersTeam().getTeamUnits().size() > playerOne.getPlayersTeam().getTeamUnits().size()) {
-            System.out.println("Player 2 is Winning!");
+        } else if ((playerTwo.getPlayersTeam().getTeamUnits().size() > 0) && (playerOne.getPlayersTeam().getTeamUnits().size() == 0)) {
+            System.out.println("Player 2 Wins!");
             return playerTwo;
         } else {
-            System.out.println("Player 1 And Player 2 Are Tied! returning current player");
-            return getCurrentPlayer();
+            System.out.println("Game is still ongoing.");
+            return null;
         }
 
     }
 
     public boolean isGameEnded(){
-        if (((playerOne.getPlayersTeam().getTeamUnits().size()) == 0) || (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)){
+        if ((playerOne.getPlayersTeam().getTeamUnits().size() == 0) || (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)){
             return true;
         }
         return false;
