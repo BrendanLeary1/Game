@@ -1,3 +1,16 @@
+/**
+ * <h1>Lab7</h1>
+ * <h2>CISC 181-020L Spring 2023</h2>
+ * <h3>University of Delaware</h3>
+ * Controller is a class that lets us finally play this game. While it doesn't really
+ * do anything meaningful yet, we can finally set up a board, perform actions, and
+ * run the game.
+ *
+ * @author Brendan Leary, Jacob Whitman, Meaghan Roth
+ *
+ * @since 2023-05-03
+ */
+
 import java.util.ArrayList;
 
 public class Controller {
