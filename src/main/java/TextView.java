@@ -1,3 +1,17 @@
+/**
+ * <h1>Lab7</h1>
+ * <h2>CISC 181-020L Spring 2023</h2>
+ * <h3>University of Delaware</h3>
+ * TextView takes a lot of the code from Lab2 and applies it to this game, now
+ * enabling us to have each character correspond to doing something on the board,
+ * as well as updating the game after each turn is done and printing the winner
+ * when the game is over.
+ *
+ * @author Brendan Leary, Jacob Whitman, Meaghan Roth
+ *
+ * @since 2023-05-03
+ */
+
 import java.util.Scanner;
 
 public class TextView {
@@ -43,9 +57,9 @@ public class TextView {
         boolean isIncorrectChar = true;
         char charValue = ' ';
         while (isIncorrectChar) {
-            System.out.println("Please press one of the following:\n - \'A\' to Attack\n - \'M\' to Move\n - \'R\' to Recruit\n - \'S\' to Spawn");
+            System.out.println("Please press one of the following:\n - 'A' to Attack\n - 'M' to Move\n - 'R' to Recruit\n - 'S' to Spawn");
             charValue = scnr.next().toUpperCase().charAt(0);
-            if ((charValue == 'A') || (charValue == 'M') || (charValue == 'R') || (charValue == 'S')) {
+            if (((charValue == 'A') || (charValue == 'M')) || ((charValue == 'R') || (charValue == 'S'))) {
                 isIncorrectChar = false;
             }
         }
@@ -96,9 +110,9 @@ public class TextView {
         char action = getUsersNextActionType(scnr);
         int numRows = game.getBoardSquares().length;
         int numCols = game.getBoardSquares()[0].length;
-        System.out.println("Please enter your square's row index. ");
+        System.out.println("Please enter your square's row index.");
         this.fromRow = getValidInt(0, numRows, scnr);
-        System.out.println("Please enter your square's column index. ");
+        System.out.println("Please enter your square's column index.");
         this.fromCol = getValidInt(0,numCols, scnr);
         String descript = "";
         if(action == 'M') {
@@ -120,7 +134,7 @@ public class TextView {
     }
 
     public void printEndOfGameMessage(Game game) {
-        if(game.isAWinner()) {
+        if(game.isGameEnded()) {
             int winningNum;
             if(game.getCurrentPlayer().getPlayersTeam().getTeamUnits().size() > 0) {
                 winningNum = game.getCurrentPlayer().getPlayerNumber();
