@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class TextView {
-    int fromRow;
-    int fromCol;
-    int toRow;
-    int toCol;
-    char action;
+    private int fromRow;
+    private int fromCol;
+    private int toRow;
+    private int toCol;
+    private char action;
 
     // No constructor
 

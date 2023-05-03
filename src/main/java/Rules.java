@@ -5,13 +5,13 @@ public class Rules {
              return false;
          } else {
              // Assesses whether the From Unit is in bounds and contains a unit
-             GameBoard board = game.getGameBoard();
-             BoardSquare[][] squares = board.getSquares();
-             Unit fromUnit = squares[fromRow][fromCol].getUnit();
-             Team currentTeam = game.getCurrentPlayer().getPlayersTeam();
-             Team opposingTeam = game.getOpponentPlayer().getPlayersTeam();
+             private GameBoard board = game.getGameBoard();
+             private BoardSquare[][] squares = board.getSquares();
+             private Team currentTeam = game.getCurrentPlayer().getPlayersTeam();
+             private Team opposingTeam = game.getOpponentPlayer().getPlayersTeam();
              if(board.inBounds(fromRow, fromCol) && !(squares[fromRow][fromCol].isEmptySpace())) {
                  // Checks whether the From Unit is from the current player's team
+                 private Unit fromUnit = squares[fromRow][fromCol].getUnit();
                  if(currentTeam.getTeamColor().equals(fromUnit.getTeamColor())) {
                      // ***** Move
                      if (action == 'M') {
@@ -40,9 +40,9 @@ public class Rules {
                              return false;
                          }
                      } else {
-                         // Checks where the To Unit is not empty
+                         // Checks whether the To Unit is not empty
                          if(!squares[toRow][toCol].isEmptySpace()) {
-                            Unit toUnit =  squares[toRow][toCol].getUnit();
+                            private Unit toUnit =  squares[toRow][toCol].getUnit();
                             // Checks whether the To Unit is of the opposing team
                             if(opposingTeam.getTeamColor().equals(toUnit.getTeamColor())) {
                                 // ***** Recruit
