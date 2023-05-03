@@ -61,25 +61,25 @@ public class Controller {
     }
 
     //instance method carryOutAction
-    public void carryOutAction(int rowFrom, int colFrom, int rowTo, int colTo, char actionType){
+    public void carryOutAction(int fromRow, int fromCol, int toRow, int toCol, char actionType){
         if(actionType == 'M'){
-            new ActionMove(game, rowFrom, colFrom, rowTo, colTo).performAction();
+            new ActionMove(game, fromRow, fromCol, toRow, toCol).performAction();
         }
         if(actionType == 'S'){
-            new ActionSpawn(game, rowFrom, colFrom, rowTo, colTo).performAction();
+            new ActionSpawn(game, fromRow, fromCol, toRow, toCol).performAction();
         }
         if(actionType == 'R'){
-            new ActionRecruit(game, rowFrom, colFrom, rowTo, colTo).performAction();
+            new ActionRecruit(game, fromRow, fromCol, toRow, toCol).performAction();
         }
         if(actionType == 'A'){
-            new ActionAttack(game, rowFrom, colFrom, rowTo, colTo).performAction();
+            new ActionAttack(game, fromRow, fromCol, toRow, toCol).performAction();
         }
     }
 
     //public method names playyGame
 
     public void playGame() {
-        while (!game.isGameEnded()) {
+        while (! game.isGameEnded()) {
             view.getNextPlayersAction(game);
             while (!Rules.checkValidAction(game, view.getFromRow(), view.getFromCol(), view.getToRow(), view.getToCol(), view.getAction())) {
                 view.getNextPlayersAction(game);
@@ -92,7 +92,7 @@ public class Controller {
         }
 
         //print message of player who won
-        System.out.println(game.getWinner());
+        game.getWinner();
         //TK add main
     }
 
