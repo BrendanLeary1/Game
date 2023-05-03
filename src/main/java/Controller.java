@@ -53,4 +53,52 @@ public class Controller {
         return new Game(8, 8, playerOne, playerTwo);
     }
 
+    //0 param
+    public Controller(){
+        game = setUpGameModel();
+        view = new TextView();
+        view.updateView(game);
+    }
+
+    //instance method carryOutAction
+    public void carryOutAction(int rowFrom, int colFrom, int rowTo, int colTo, char actionType){
+        if(actionType == 'M'){
+            new ActionMove(game, rowFrom, colFrom, rowTo, colTo).performAction();
+        }
+        if(actionType == 'S'){
+            new ActionSpawn(game, rowFrom, colFrom, rowTo, colTo).performAction();
+        }
+        if(actionType == 'R'){
+            new ActionRecruit(game, rowFrom, colFrom, rowTo, colTo).performAction();
+        }
+        if(actionType == 'A'){
+            new ActionAttack(game, rowFrom, colFrom, rowTo, colTo).performAction();
+        }
+    }
+
+    //public method names playyGame
+
+    public void playGame() {
+        while (!game.isGameEnded()) {
+            view.getNextPlayersAction(game);
+            while (!Rules.checkValidAction(game, view.getFromRow(), view.getFromCol(), view.getToRow(), view.getToCol(), view.getAction())) {
+                view.getNextPlayersAction(game);
+            }
+            //calls carryOutAction
+            carryOutAction(view.getFromRow(), view.getFromCol(), view.getToRow(), view.getToCol(), view.getAction());
+            //print Game objecct
+            System.out.println(game);
+            //if game is not ended Repeat above
+        }
+
+        //print message of player who won
+        System.out.println(game.getWinner());
+        //TK add main
+    }
+
+    public static void main(String[] args) {
+        Controller controller = new Controller();
+        controller.playGame();
+    }
+
 }
