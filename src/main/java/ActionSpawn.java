@@ -1,3 +1,14 @@
+/**
+ * <h1>Lab7</h1>
+ * <h2>CISC 181-020L Spring 2023</h2>
+ * <h3>University of Delaware</h3>
+ * ActionSpawn, similarly to ActionMove, extends Action and spawns a new unit.
+ *
+ * @author Brendan Leary, Jacob Whitman, Meaghan Roth
+ *
+ * @since 2023-05-03
+ */
+
 public class ActionSpawn extends Action{
     public ActionSpawn(Game game, int fromRow, int fromCol, int toRow, int toCol) {
         super(game, fromRow, fromCol, toRow, toCol);
