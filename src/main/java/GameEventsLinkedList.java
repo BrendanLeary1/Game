@@ -74,7 +74,25 @@ public class GameEventsLinkedList {
         return (head == null);
     }
 
+    public void push(GameEventNode newNode) {
+        if (this.isEmpty()) {
+            this.head = newNode;
+        }
+        else {
+            newNode.next = head;
+            head = newNode;
+            /** OLD CODE
+            GameEventNode current = this.head;
+            while (current.getNext() != null) {
+                current = current.getNext();
+            }
+            current.setNext(newNode);
+             **/
+        }
+        this.size += 1;
+    }
     public void add(GameEventNode newNode) {
+        //leaving this in as helper function
         if (this.isEmpty()) {
             this.head = newNode;
         }
@@ -88,7 +106,11 @@ public class GameEventsLinkedList {
         this.size += 1;
     }
 
-    public GameEvent remove(GameEventNode removedNode) {
+    public GameEventNode pop() {
+        GameEventNode node = this.head;
+        head = node.getNext();
+        return node;
+        /** OLD CODE
         GameEventNode current = this.head;
         if (current == removedNode) {
             this.head = current.getNext();
@@ -106,16 +128,28 @@ public class GameEventsLinkedList {
             return removedNode.getGameState();
         }
         return null;
+         **/
     }
 
-    public GameEventsLinkedList extract(String eventType) {
+    public GameEventsLinkedList pop(String eventType) {
         GameEventsLinkedList eventList = new GameEventsLinkedList();
         GameEventNode current = this.head;
+        GameEventNode previous = null;
         while (current != null) {
             if (current.getGameState().getEventType().equals(eventType)) {
                 GameEventNode dummyNode = new GameEventNode(new GameEvent(current.getGameState().getPlayerNumber(),
                         current.getGameState().getEventType(), current.getGameState().getEventDetails()));
                 eventList.add(dummyNode);
+                if (previous == null){
+                    head = current.getNext();
+                }
+                else if (previous != null){
+                    previous.next = current.getNext();
+                }
+
+            }
+            else{
+                previous = current;
             }
             current = current.getNext();
 
