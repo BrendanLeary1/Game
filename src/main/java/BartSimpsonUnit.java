@@ -56,5 +56,35 @@ public class BartSimpsonUnit extends Recruiter {
         this.numTimesSpawned += 1;
         return newBart;
     }
-}
 
+    @Override
+    public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
+        if (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromCol == toCol) && (
+                ( (2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
+                        ( (2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)) ))) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol) {
+        if (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromCol == toCol) && (
+                ( (2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
+                        ( (2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)) ))) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean validRecruitPath(int fromRow, int fromCol, int toRow, int toCol) {
+        return (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromCol == toCol) && (
+                ( (2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
+                        ( (2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)) )));
+    }
+}
