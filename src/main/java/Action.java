@@ -10,11 +10,11 @@
  * @since 2023-05-03
  */
 public abstract class Action {
-    public Game game;
-    public int fromRow;
-    public int fromCol;
-    public int toRow;
-    public int toCol;
+    protected Game game;
+    protected int fromRow;
+    protected int fromCol;
+    protected int toRow;
+    protected int toCol;
 
     public Action(Game game, int fromRow, int fromCol, int toRow, int toCol) {
         this.game = game;

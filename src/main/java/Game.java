@@ -20,9 +20,9 @@ public class Game {
         }
     }
     public Game(int rows, int cols, Player playerOne, Player playerTwo){
+        initializeGameBoard(rows, cols);
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
-        this.gameBoard  = new GameBoard(rows, cols);
     }
 
     public GameBoard getGameBoard() {

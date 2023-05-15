@@ -2,7 +2,7 @@ public class BartSimpsonUnit extends Recruiter {
     private int numTimesSpawned;
     private boolean distract;
     private boolean recruit;
-    private final int MAX_NUM_SPAWNED = 1;
+    private final int MAX_NUM_SPAWNED = 2;
 
     public BartSimpsonUnit(char symbol, String name, double health, double healthModifier, double damage,
                            double damageModifier, int luck, int xCor, int yCor, int movement,

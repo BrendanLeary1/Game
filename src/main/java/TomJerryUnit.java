@@ -25,7 +25,7 @@ public class TomJerryUnit extends Attacker {
         this.hiding = hiding;
     }
     public TomJerryUnit() {
-        this('T', "Tom & Jerry", 100.0, 0.0, 25.0, 0.0, 0, 5, 5, 1, 0, true, true, false, "none", 1);
+        this('T', "Tom & Jerry", 100.0, 0.0, 25.0, 0.0, 0, 5, 5, 1, 0, true, true, false, "none", 0);
     }
     public boolean canHomingRocket() {
         return this.homingRocket;
@@ -63,7 +63,7 @@ public class TomJerryUnit extends Attacker {
     public TomJerryUnit spawn() {
         TomJerryUnit newTomJerry = new TomJerryUnit('t', "Tom and Jerry", 100.0,
                 5.0, 25.0, 10.0, 0, 1, 1, 1,
-                1, true, true, true, "none", 1);
+                1, true, true, true, "none", 0);
         return newTomJerry;
     }
 

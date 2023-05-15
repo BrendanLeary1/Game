@@ -42,7 +42,7 @@ public class Rules {
                      // ***** Spawn
                      } else if (action == 'S') {
                          // Checks whether the To Unit is empty
-                         if(squares[toRow][toCol].isEmptySpace()) {
+                         if((squares[toRow][toCol].isEmptySpace() && squares[toRow][toCol].getUnit().canSpawn())) {
                              // Checks whether the spawn path is valid
                              if(fromUnit.validSpawnPath(fromRow, fromCol, toRow, toCol)) {
                                  return true;
