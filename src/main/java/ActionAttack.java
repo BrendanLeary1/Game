@@ -39,6 +39,7 @@ public class ActionAttack extends Action{
                 game.getGameBoard().getSquares()[toRow][toCol].setUnit(attacker);
             }
         }
+        System.out.println(game.toString());
         game.changeTurn();
     }
 }

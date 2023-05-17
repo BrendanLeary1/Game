@@ -23,6 +23,7 @@ public class ActionRecruit extends Action{
         Unit recruited = game.getGameBoard().getSquares()[toRow][toCol].getUnit();
         otherPlayer.getPlayersTeam().removeUnitsFromTeam(recruited);
         recruitingPlayer.getPlayersTeam().addUnitsToTeam(recruited);
+        System.out.println(game.toString());
         game.changeTurn();
     }
 }
