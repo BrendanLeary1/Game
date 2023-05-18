@@ -14,7 +14,7 @@
 public class Rules {
     public static boolean checkValidAction(Game game, int fromRow, int fromCol, int toRow, int toCol, char action)  {
          // Checks if the action char is not one of the valid options (M,S,R,A)
-         if (!( (action == 'M' || action == 'S') || (action == 'R' || action == 'A')) ) {
+         if (!( (action == 'M' || action == 'S') || (action == 'R' || action == 'A') || action == 'B') ) {
              return false;
          } else {
              // Assesses whether the From Unit is in bounds and contains a unit
@@ -73,12 +73,23 @@ public class Rules {
                                         return false;
                                     }
                                 // ***** Attack
-                                } else {
+                                } else if (action == 'A'){
                                     // Checks whether the from unit can attack
                                     if(fromUnit instanceof Attacker) {
                                         // Checks whether the from unit has a valid attack path
                                         // must cast from unit to Attacker
                                         if(((Attacker) fromUnit).validAttackPath(fromRow, fromCol, toRow, toCol)) {
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                    } else {
+                                        return false;
+                                    }
+                                // ***** Bark
+                                } else {
+                                    if(fromUnit instanceof Barker) {
+                                        if (((Barker) fromUnit).validBarkPath(fromRow, fromCol, toRow, toCol)) {
                                             return true;
                                         } else {
                                             return false;
