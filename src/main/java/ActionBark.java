@@ -32,7 +32,7 @@ public class ActionBark extends Action {
     public String toString() {
         return game.getCurrentPlayer().getPlayersTeam().getTeamColor() + " team's " +
                 game.getBoardSquares()[fromRow][fromCol].getUnit().getName() + " unit barks from " +
-                fromRow + "," + fromCol + "and is barking " +
+                fromRow + "," + fromCol + "and is barking at " +
                 game.getOpponentPlayer().getPlayersTeam().getTeamColor() + " team's " +
                 game.getBoardSquares()[toRow][toCol].getUnit().getName() + " unit at " + toRow +
                 "," + toCol;
