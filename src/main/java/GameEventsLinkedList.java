@@ -109,6 +109,7 @@ public class GameEventsLinkedList {
     public GameEventNode pop() {
         GameEventNode node = this.head;
         head = node.getNext();
+        node.setNext(null);
         return node;
         /** OLD CODE
         GameEventNode current = this.head;
@@ -143,7 +144,7 @@ public class GameEventsLinkedList {
                 if (previous == null){
                     head = current.getNext();
                 }
-                else if (previous != null){
+                else {
                     previous.next = current.getNext();
                 }
 

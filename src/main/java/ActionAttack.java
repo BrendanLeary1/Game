@@ -42,4 +42,14 @@ public class ActionAttack extends Action{
         System.out.println(game.toString());
         game.changeTurn();
     }
+
+    @Override
+    public String toString() {
+        return game.getCurrentPlayer().getPlayersTeam().getTeamColor() + " team's " +
+                game.getBoardSquares()[fromRow][fromCol].getUnit().getName() + " unit attacks from " +
+                fromRow + "," + fromCol + "and is attacking " +
+                game.getOpponentPlayer().getPlayersTeam().getTeamColor() + " team's " +
+                game.getBoardSquares()[toRow][toCol].getUnit().getName() + " unit at " + toRow +
+                "," + toCol;
+    }
 }
