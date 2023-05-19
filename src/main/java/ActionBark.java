@@ -64,6 +64,7 @@ public class ActionBark extends Action {
                 } else if (direction == 'D' && toRow != rowLength - 1) {
                     game.getGameBoard().getSquares()[toRow + 1][toCol].setUnit(temp);
                 }
+                game.getGameBoard().getSquares()[toRow][toCol].removeUnit();
                 System.out.println(game.toString());
                 game.changeTurn();
             }
