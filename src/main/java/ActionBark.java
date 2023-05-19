@@ -55,16 +55,14 @@ public class ActionBark extends Action {
                 game.getGameBoard().getSquares()[toRow][toCol].removeUnit();
                 int colLength = game.getBoardSquares().length;
                 int rowLength = game.getBoardSquares()[0].length;
-                if(toRow != 0 && toCol != 0 && toRow != rowLength-1 && toCol != colLength-1) {
-                    if (direction == 'L') {
-                        game.getGameBoard().getSquares()[toRow][toCol - 1].setUnit(temp);
-                    } else if (direction == 'R') {
-                        game.getGameBoard().getSquares()[toRow][toCol + 1].setUnit(temp);
-                    } else if (direction == 'U') {
-                        game.getGameBoard().getSquares()[toRow - 1][toCol].setUnit(temp);
-                    } else if (direction == 'D') {
-                        game.getGameBoard().getSquares()[toRow + 1][toCol].setUnit(temp);
-                    }
+                if (direction == 'L' && toCol != 0) {
+                    game.getGameBoard().getSquares()[toRow][toCol - 1].setUnit(temp);
+                } else if (direction == 'R' && toCol != colLength - 1) {
+                    game.getGameBoard().getSquares()[toRow][toCol + 1].setUnit(temp);
+                } else if (direction == 'U' && toRow != 0) {
+                    game.getGameBoard().getSquares()[toRow - 1][toCol].setUnit(temp);
+                } else if (direction == 'D' && toRow != rowLength - 1) {
+                    game.getGameBoard().getSquares()[toRow + 1][toCol].setUnit(temp);
                 }
                 System.out.println(game.toString());
                 game.changeTurn();
