@@ -87,6 +87,7 @@ public class Controller {
         if(actionType == 'A'){
             new ActionAttack(game, fromRow, fromCol, toRow, toCol).performAction();
         }
+        // New Action Modification
         if(actionType == 'B'){
             new ActionBark(game, fromRow, fromCol, toRow, toCol).performAction();
         }

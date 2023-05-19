@@ -1,3 +1,17 @@
+/**
+ * // New Unit Modification
+ * <h1>Final Project</h1>
+ * <h2>CISC 181-020L Spring 2023</h2>
+ * <h3>University of Delaware</h3>
+ * The ScoobyDooUnit class, which extends Barker, which then
+ * extends Unit, is a Unit with the field canSpeak, a constructor,
+ * overridden methods from Unit, and two instance methods:
+ * barkDirection and validBarkPath.
+ *
+ * @author Brendan Leary, Jacob Whitman, Meaghan Roth
+ *
+ * @since 2023-05-18
+ */
 public class ScoobyDooUnit extends Barker {
     private boolean canSpeak;
 
@@ -27,6 +41,8 @@ public class ScoobyDooUnit extends Barker {
 
     public boolean canSpawn(){ return true; }
 
+    // barkDirection returns a char that represents the direction of the barked at
+    // Unit relative to the position of the barking unit
     public char barkDirection(int fromRow, int fromCol, int toRow, int toCol) {
         if(fromRow == toRow) {
             if(fromCol > toCol) {
@@ -46,6 +62,8 @@ public class ScoobyDooUnit extends Barker {
         return '/';
     }
 
+    // validBarkPath returns a boolean that represents whether the unit at [fromRow][fromCol]
+    // can bark at its target, based on if it is in its bark range and in a cardinal direction
     public boolean validBarkPath(int fromRow, int fromCol, int toRow, int toCol) {
         // Get direction of the bark
         char direction = barkDirection(fromRow,fromCol,toRow,toCol);
