@@ -16,11 +16,14 @@ public class ActionSpawn extends Action{
 
     @Override
     public void performAction() {
-        Unit guy = game.getGameBoard().getSquares()[fromRow][fromCol].getUnit().spawn();
-        game.getCurrentPlayer().getPlayersTeam().addUnitsToTeam(guy);
-        game.getGameBoard().getSquares()[toRow][toCol].setUnit(guy);
-        System.out.println(game.toString());
-        game.changeTurn();
+        // updated to prevent SpikeUnit from spawning
+        if (! (game.getGameBoard().getSquares()[fromRow][fromCol].getUnit() instanceof SpikeUnit)) {
+            Unit guy = game.getGameBoard().getSquares()[fromRow][fromCol].getUnit().spawn();
+            game.getCurrentPlayer().getPlayersTeam().addUnitsToTeam(guy);
+            game.getGameBoard().getSquares()[toRow][toCol].setUnit(guy);
+            System.out.println(game.toString());
+            game.changeTurn();
+        }
     }
 
     @Override

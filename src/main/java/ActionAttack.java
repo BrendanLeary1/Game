@@ -23,8 +23,10 @@ public class ActionAttack extends Action{
         Unit attacked = game.getGameBoard().getSquares()[toRow][toCol].getUnit();
         Player otherPlayer = game.getOpponentPlayer();
         if (attacker instanceof Attacker) {
-            if (attacked instanceof TomJerryUnit) {
+            if (attacked instanceof TomJerryUnit) { // This also includes SpikeUnit
                 ((TomJerryUnit) attacked).takeDamage(((TomJerryUnit) attacker).dealDamage());
+                // Added line below to make sure there's not an invisible army of TomJerryUnits
+                ((TomJerryUnit) attacker).setHiding(false);
                 if (attacker.getHealth() <= 0) {
                     game.getGameBoard().getSquares()[toRow][toCol].removeUnit();
                     otherPlayer.getPlayersTeam().removeUnitsFromTeam(attacked);
@@ -32,7 +34,8 @@ public class ActionAttack extends Action{
                     game.getGameBoard().getSquares()[toRow][toCol].setUnit(attacker);
 
                 }
-            } else if (attacked instanceof BartSimpsonUnit) {
+            } else if (! (attacked instanceof Attacker)) {
+                // changed to include both BartSimpson and ScoobyDoo Units
                 game.getGameBoard().getSquares()[toRow][toCol].removeUnit();
                 otherPlayer.getPlayersTeam().removeUnitsFromTeam(attacked);
                 game.getGameBoard().getSquares()[fromRow][fromCol].removeUnit();

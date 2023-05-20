@@ -30,9 +30,14 @@ public class Controller {
         TomJerryUnit tj = new TomJerryUnit();
         tj.setTeamColor("Blu");
 
+        // Added SpikeUnit to each player's team
+        SpikeUnit s = new SpikeUnit();
+        s.setTeamColor("Blu");
+
 
         piecesTeamA.add(bs);
         piecesTeamA.add(tj);
+        piecesTeamA.add(s);
 
 
         // Create a team object
@@ -52,9 +57,13 @@ public class Controller {
         TomJerryUnit tj2 = new TomJerryUnit();
         tj2.setTeamColor("Red");
 
+        SpikeUnit s2 = new SpikeUnit();
+        s2.setTeamColor("Red");
+
 
         piecesTeamB.add(bs2);
         piecesTeamB.add(tj2);
+        piecesTeamB.add(s2);
 
 
         // Create a team object
