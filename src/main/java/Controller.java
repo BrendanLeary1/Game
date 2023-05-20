@@ -34,10 +34,15 @@ public class Controller {
         SpikeUnit s = new SpikeUnit();
         s.setTeamColor("Blu");
 
+        // Added ScoobyDooUnit to each player's team
+        ScoobyDooUnit sd = new ScoobyDooUnit();
+        sd.setTeamColor("Blu");
+
 
         piecesTeamA.add(bs);
         piecesTeamA.add(tj);
         piecesTeamA.add(s);
+        piecesTeamA.add(sd);
 
 
         // Create a team object
@@ -60,10 +65,14 @@ public class Controller {
         SpikeUnit s2 = new SpikeUnit();
         s2.setTeamColor("Red");
 
+        ScoobyDooUnit sd2 = new ScoobyDooUnit();
+        sd2.setTeamColor("Red");
+
 
         piecesTeamB.add(bs2);
         piecesTeamB.add(tj2);
         piecesTeamB.add(s2);
+        piecesTeamB.add(sd2);
 
 
         // Create a team object

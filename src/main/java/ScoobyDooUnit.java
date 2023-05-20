@@ -22,6 +22,12 @@ public class ScoobyDooUnit extends Barker {
                 xCor, yCor, movement, movementModifier, teamColor, barkRange);
         this.canSpeak = canSpeak;
     }
+
+    public ScoobyDooUnit() {
+        this('D', "Scooby Doo", 100.0, 0.0, 25.0, 0.0,
+                0, 5, 5, 1, 0, "none", 8, true);
+    }
+
     public ScoobyDooUnit spawn() {
         ScoobyDooUnit scooby = new ScoobyDooUnit('S', "Scooby", 100.0,
                 5.0, 25.0, 10.0, 0, 1, 1, 1,
@@ -47,13 +53,13 @@ public class ScoobyDooUnit extends Barker {
         if(fromRow == toRow) {
             if(fromCol > toCol) {
                 return 'L';
-            } else if (fromCol < toCol) {
+            } else { // toCol > fromCol
                 return 'R';
             }
         } else if (fromCol == toCol) {
             if(fromRow > toRow) {
                 return 'U';
-            } else if (fromRow < toRow) {
+            } else { // toRow > fromRow
                 return 'D';
             }
         }
