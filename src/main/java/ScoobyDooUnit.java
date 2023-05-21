@@ -37,7 +37,18 @@ public class ScoobyDooUnit extends Barker {
 
     @Override
     public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
-        return true;
+        char direction = barkDirection(fromRow,fromCol,toRow,toCol);
+        if(direction == '/') {
+            return false;
+        } else if (direction == 'L' && toCol >= fromCol - 2) {
+            return true;
+        } else if (direction == 'R' && toCol <= fromCol + 2) {
+            return true;
+        } else if (direction == 'U' && toRow >= fromRow - 2) {
+            return true;
+        } else if (direction == 'D' && toRow <= fromRow - 2) {
+            return true;
+        } return false;
     }
 
     @Override
