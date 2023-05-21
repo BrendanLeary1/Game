@@ -71,12 +71,12 @@ public class TomJerryUnit extends Attacker {
 
     @Override
     public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
-        return ((fromRow == toRow) && (fromRow == fromCol));
+        return (! ((fromRow == toRow) && (fromRow == fromCol)));
     }
 
     @Override
     public boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol) {
-        return ((fromRow == toRow) && (fromRow == fromCol));
+        return (! ((fromRow == toRow) && (fromRow == fromCol)));
     }
 
     @Override
