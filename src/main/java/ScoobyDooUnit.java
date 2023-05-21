@@ -37,23 +37,24 @@ public class ScoobyDooUnit extends Barker {
 
     @Override
     public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
-        char direction = barkDirection(fromRow,fromCol,toRow,toCol);
-        if(direction == '/') {
+        if ((fromRow == toRow) && (fromRow == fromCol)) {
             return false;
-        } else if (direction == 'L' && toCol >= fromCol - 2) {
-            return true;
-        } else if (direction == 'R' && toCol <= fromCol + 2) {
-            return true;
-        } else if (direction == 'U' && toRow >= fromRow - 2) {
-            return true;
-        } else if (direction == 'D' && toRow <= fromRow - 2) {
-            return true;
-        } return false;
+        }
+        return (((fromRow == toRow) && (((2 >= fromCol - toCol) && (fromCol - toCol >= 0)) ||
+                ((2 >= toCol - fromCol) && (toCol - fromCol >= 0)))) ||
+                ((fromCol == toCol) && (((2 >= fromRow - toRow) && (fromRow - toRow >= 0)) ||
+                        ((2 >= toRow - fromRow) && (toRow - fromRow >= 0)))));
     }
 
     @Override
     public boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol) {
-        return true;
+        if ((fromRow == toRow) && (fromRow == fromCol)) {
+            return false;
+        }
+        return ((((1 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0)) ||
+                ((1 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0))) &&
+                (( (1 >= (toCol - fromCol)) && ((toCol - fromCol) >= 0)) ||
+                ((1 >= (fromCol - toCol)) && ((fromCol - toCol) >= 0))));
     }
 
     public boolean canSpawn(){ return true; }
@@ -82,6 +83,9 @@ public class ScoobyDooUnit extends Barker {
     // validBarkPath returns a boolean that represents whether the unit at [fromRow][fromCol]
     // can bark at its target, based on if it is in its bark range and in a cardinal direction
     public boolean validBarkPath(int fromRow, int fromCol, int toRow, int toCol) {
+        if ((fromRow == toRow) && (fromRow == fromCol)) {
+            return false;
+        }
         // Get direction of the bark
         char direction = barkDirection(fromRow,fromCol,toRow,toCol);
         if(direction == '/') {

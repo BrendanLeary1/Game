@@ -55,8 +55,8 @@ public class ActionBark extends Action {
                 game.getGameBoard().getSquares()[toRow][toCol].removeUnit();
                 int colLength = game.getBoardSquares().length;
                 int rowLength = game.getBoardSquares()[0].length;
-                if((direction == 'L' && toCol == 0) || (direction == 'R' && toCol == colLength - 1)
-                        || (direction == 'U' && toRow == 0) || (direction == 'D' && toRow == rowLength - 1)) {
+                if(((direction == 'L' && toCol == 0) || (direction == 'R' && toCol == colLength - 1))
+                        || ((direction == 'U' && toRow == 0) || (direction == 'D' && toRow == rowLength - 1))) {
                     // New Rule Modification
                     // If the opposing player is barked off of the board,
                     // they lose their piece and also lose a turn (the turn is not switched back to them)
@@ -76,8 +76,6 @@ public class ActionBark extends Action {
                 }
             }
         }
-        System.out.println(game.toString());
-        game.changeTurn();
     }
 
     @Override

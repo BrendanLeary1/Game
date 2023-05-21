@@ -38,6 +38,9 @@ public class SpikeUnit extends TomJerryUnit{
 
     @Override
     public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
+        if ((fromRow == toRow) && (fromRow == fromCol)) {
+            return false;
+        }
         return ( ((fromCol == toCol) && (( (4 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
                         ( (4 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)))) ^
                 (((fromRow == toRow) && (((2 >= (toCol - fromCol)) && ((toCol - fromCol) >= 0) ) ||
@@ -51,6 +54,9 @@ public class SpikeUnit extends TomJerryUnit{
 
     @Override
     public boolean validAttackPath(int fromRow, int fromCol, int toRow, int toCol) {
+        if ((fromRow == toRow) && (fromRow == fromCol)) {
+            return false;
+        }
         return ((((2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0)) ||
                     ((2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0))) &&
                 (( (2 >= (toCol - fromCol)) && ((toCol - fromCol) >= 0)) ||

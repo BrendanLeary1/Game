@@ -17,17 +17,10 @@ public class ActionSpawn extends Action{
     @Override
     public void performAction() {
         // updated to prevent SpikeUnit from spawning
-        if (! (game.getGameBoard().getSquares()[fromRow][fromCol].getUnit() instanceof SpikeUnit) &&
-                ! (game.getGameBoard().getSquares()[fromRow][fromCol].getUnit() instanceof ScoobyDooUnit)) {
+        if (! (game.getGameBoard().getSquares()[fromRow][fromCol].getUnit() instanceof SpikeUnit)) {
             Unit guy = game.getGameBoard().getSquares()[fromRow][fromCol].getUnit().spawn();
             game.getCurrentPlayer().getPlayersTeam().addUnitsToTeam(guy);
             game.getGameBoard().getSquares()[toRow][toCol].setUnit(guy);
-            System.out.println(game.toString());
-            game.changeTurn();
-        } else if (game.getGameBoard().getSquares()[fromRow][fromCol].getUnit() instanceof ScoobyDooUnit) {
-            ScoobyDooUnit scooby = (ScoobyDooUnit) game.getBoardSquares()[fromRow][fromCol].getUnit().spawn();
-            game.getCurrentPlayer().getPlayersTeam().addUnitsToTeam(scooby);
-            game.getGameBoard().findRandomEmptySpace().setUnit(scooby);
             System.out.println(game.toString());
             game.changeTurn();
         }

@@ -59,32 +59,31 @@ public class BartSimpsonUnit extends Recruiter {
 
     @Override
     public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
-        if (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromCol == toCol) && (
-                ( (2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
-                        ( (2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)) ))) {
-            return true;
-        }
-        else {
+        if ((fromRow == toRow) && (fromRow == fromCol)) {
             return false;
         }
+        return (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromRow == toRow) && (
+                ((2 >= (toCol - fromCol)) && ((toCol - fromCol) >= 0)) ||
+                        ((2 >= (fromCol - toCol)) && ((fromCol - toCol) >= 0)))));
     }
 
     @Override
     public boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol) {
-        if (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromCol == toCol) && (
-                ( (2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
-                        ( (2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)) ))) {
-            return true;
-        }
-        else {
+        if ((fromRow == toRow) && (fromRow == fromCol)) {
             return false;
         }
+        return (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromRow == toRow) && (
+                ((2 >= (toCol - fromCol)) && ((toCol - fromCol) >= 0)) ||
+                        ((2 >= (fromCol - toCol)) && ((fromCol - toCol) >= 0)))));
     }
 
     @Override
     public boolean validRecruitPath(int fromRow, int fromCol, int toRow, int toCol) {
-        return (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromCol == toCol) && (
-                ( (2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
-                        ( (2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)) )));
+        if ((fromRow == toRow) && (fromRow == fromCol)) {
+            return false;
+        }
+        return (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromRow == toRow) && (
+                ((2 >= (toCol - fromCol)) && ((toCol - fromCol) >= 0)) ||
+                        ((2 >= (fromCol - toCol)) && ((fromCol - toCol) >= 0)))));
     }
 }
