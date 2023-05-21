@@ -59,7 +59,7 @@ public class BartSimpsonUnit extends Recruiter {
 
     @Override
     public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
-        if ((fromRow == toRow) && (fromRow == fromCol)) {
+        if ((fromRow == toRow) && (toCol == fromCol)) {
             return false;
         }
         return (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromRow == toRow) && (
@@ -69,7 +69,7 @@ public class BartSimpsonUnit extends Recruiter {
 
     @Override
     public boolean validSpawnPath(int fromRow, int fromCol, int toRow, int toCol) {
-        if ((fromRow == toRow) && (fromRow == fromCol)) {
+        if ((fromRow == toRow) && (toCol == fromCol)) {
             return false;
         }
         return (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromRow == toRow) && (
@@ -79,7 +79,7 @@ public class BartSimpsonUnit extends Recruiter {
 
     @Override
     public boolean validRecruitPath(int fromRow, int fromCol, int toRow, int toCol) {
-        if ((fromRow == toRow) && (fromRow == fromCol)) {
+        if ((fromRow == toRow) && (toCol == fromCol)) {
             return false;
         }
         return (((fromCol == toCol) && (fromRow != toRow)) ^ ((fromRow == toRow) && (

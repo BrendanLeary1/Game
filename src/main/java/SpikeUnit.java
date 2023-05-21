@@ -38,7 +38,7 @@ public class SpikeUnit extends TomJerryUnit{
 
     @Override
     public boolean validMovePath(int fromRow, int fromCol, int toRow, int toCol) {
-        if ((fromRow == toRow) && (fromRow == fromCol)) {
+        if ((fromRow == toRow) && (toCol == fromCol)) {
             return false;
         }
         return ( ((fromCol == toCol) && (( (4 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
@@ -54,7 +54,7 @@ public class SpikeUnit extends TomJerryUnit{
 
     @Override
     public boolean validAttackPath(int fromRow, int fromCol, int toRow, int toCol) {
-        if ((fromRow == toRow) && (fromRow == fromCol)) {
+        if ((fromRow == toRow) && (toCol == fromCol)) {
             return false;
         }
         return ((((2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0)) ||
