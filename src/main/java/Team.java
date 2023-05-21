@@ -30,6 +30,17 @@ public class Team {
         return this.teamUnits;
     }
 
+    // Added getNumAttackers to figure out who wins
+    public int getNumAttackers() {
+        int numAttackers = 0;
+        for (Unit unit : this.teamUnits) {
+            if (unit instanceof Attacker) {
+                numAttackers += 1;
+            }
+        }
+        return numAttackers;
+    }
+
     public void removeUnitsFromTeam(Unit removedUnit) {
         this.teamUnits.remove(removedUnit);
     }

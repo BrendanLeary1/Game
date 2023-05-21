@@ -71,19 +71,21 @@ public class Game {
         return retString.toString();
     }
 
+
+    // Updated these three methods to follow the new win condition
     public boolean isAWinner(){
         //XOR operator
-        if ((playerOne.getPlayersTeam().getTeamUnits().size() == 0) ^ (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)) {
+        if ((playerOne.getPlayersTeam().getNumAttackers() == 0) ^ (playerTwo.getPlayersTeam().getNumAttackers() == 0)) {
             return true;
         }
         return false;
     }
 
     public Player getWinner(){
-        if ((playerOne.getPlayersTeam().getTeamUnits().size() > 0) && (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)) {
+        if ((playerOne.getPlayersTeam().getNumAttackers() > 0) && (playerTwo.getPlayersTeam().getNumAttackers() == 0)) {
             System.out.println("Player 1 Wins!");
             return playerOne;
-        } else if ((playerTwo.getPlayersTeam().getTeamUnits().size() > 0) && (playerOne.getPlayersTeam().getTeamUnits().size() == 0)) {
+        } else if ((playerTwo.getPlayersTeam().getNumAttackers() > 0) && (playerOne.getPlayersTeam().getNumAttackers() == 0)) {
             System.out.println("Player 2 Wins!");
             return playerTwo;
         } else {
@@ -94,7 +96,7 @@ public class Game {
     }
 
     public boolean isGameEnded(){
-        if ((playerOne.getPlayersTeam().getTeamUnits().size() == 0) || (playerTwo.getPlayersTeam().getTeamUnits().size() == 0)){
+        if ((playerOne.getPlayersTeam().getNumAttackers() == 0) || (playerTwo.getPlayersTeam().getNumAttackers() == 0)){
             return true;
         }
         return false;

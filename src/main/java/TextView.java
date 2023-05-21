@@ -123,6 +123,8 @@ public class TextView {
             descript = "you will recruit";
         } else if (action == 'A') {
             descript = "you will attack";
+        } else if (action == 'B') { // Updated to include Bark
+            descript = "you will bark at";
         }
         System.out.println("Please enter the row index of the square " + descript + ".");
         this.toRow = getValidInt(0, numRows, scnr);
