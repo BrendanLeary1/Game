@@ -34,7 +34,7 @@ public class ActionAttack extends Action{
                     game.getGameBoard().getSquares()[toRow][toCol].setUnit(attacker);
 
                 }
-            } else if (! (attacked instanceof Attacker)) {
+            } else if (!(attacked instanceof Attacker)) {
                 // changed to include both BartSimpson and ScoobyDoo Units
                 game.getGameBoard().getSquares()[toRow][toCol].removeUnit();
                 otherPlayer.getPlayersTeam().removeUnitsFromTeam(attacked);
@@ -42,8 +42,6 @@ public class ActionAttack extends Action{
                 game.getGameBoard().getSquares()[toRow][toCol].setUnit(attacker);
             }
         }
-        System.out.println(game.toString());
-        game.changeTurn();
     }
 
     @Override

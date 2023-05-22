@@ -71,8 +71,6 @@ public class ActionBark extends Action {
                     } else if (direction == 'D') {
                         game.getGameBoard().getSquares()[toRow + 1][toCol].setUnit(temp);
                     }
-                    System.out.println(game.toString());
-                    game.changeTurn();
                 }
             }
         }

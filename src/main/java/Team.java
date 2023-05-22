@@ -68,7 +68,7 @@ public class Team {
     public String toString() {
         String units = "";
         for (Unit aUnit : teamUnits) {
-            units += aUnit.toString();
+            units += aUnit.toString() + " ";
         }
         return "Team " + this.teamColor + " Units :" + "\n" + units;
     }

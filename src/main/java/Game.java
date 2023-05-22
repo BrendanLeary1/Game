@@ -1,4 +1,4 @@
-import java.util.Collections;
+import java.util.*;
 
 public class Game {
     private GameBoard gameBoard;
@@ -48,8 +48,13 @@ public class Game {
     }
 
     public void changeTurn(){
-        getCurrentPlayer().setTurn(false);
-        getOpponentPlayer().setTurn(true);
+        if(playerOne.isTurn()) {
+            playerOne.setTurn(false);
+            playerTwo.setTurn(true);
+        } else if(playerTwo.isTurn()) {
+            playerTwo.setTurn(false);
+            playerOne.setTurn(true);
+        }
     }
     public boolean isTurn(Player p){
         if (p.isTurn()){return true;}

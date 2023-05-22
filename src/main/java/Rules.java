@@ -15,7 +15,6 @@ public class Rules {
     public static boolean checkValidAction(Game game, int fromRow, int fromCol, int toRow, int toCol, char action)  {
         // Checks if the action char is not one of the valid options (M,S,R,A,B)
          if (!( (action == 'M' || action == 'S') || (action == 'R' || action == 'A') || action == 'B') ) {
-             System.out.println("cry about it");
              return false;
          } else {
              // Assesses whether the From Unit is in bounds and contains a unit

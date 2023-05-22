@@ -20,8 +20,6 @@ public class ActionMove extends Action{
         Unit dummy = game.getGameBoard().getSquares()[fromRow][fromCol].getUnit();
         game.getGameBoard().getSquares()[fromRow][fromCol].removeUnit();
         game.getGameBoard().getSquares()[toRow][toCol].setUnit(dummy);
-        System.out.println(game.toString());
-        game.changeTurn();
     }
 
     @Override
