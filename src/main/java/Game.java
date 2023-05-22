@@ -115,17 +115,28 @@ public class Game {
         // Choose a random BoardSquare
         BoardSquare randomSquare = gameBoard.findRandomEmptySpace();
 
+        BoardSquare[][] board =this.gameBoard.getSquares();
         // Remove a random attacker from the enemy team
         Player currentPlayer = getCurrentPlayer();
         Player opponentPlayer = getOpponentPlayer();
         Team opponentTeam = opponentPlayer.getPlayersTeam();
-        /**
+
          Random rand = new Random();
-         int randomIndex = Random.nextInt(opponentTeam.getTeamUnits().size());
-         Unit randomAttacker = opponentTeam.removeUnitsFromTeam(randomIndex);
-         Unit randomAttacker = opponentTeam.getTeamUnits().get(randomIndex);
-         **/
-        opponentTeam.removeMostRecentAttacker();
+         int randomIndex = rand.nextInt(opponentTeam.getTeamUnits().size());
+         Unit unitToRemove = opponentTeam.getTeamUnits().get(randomIndex);
+
+        for (int i = 0; i < this.gameBoard.getNumRows(); i++) {
+            for (int j = 0; j < this.gameBoard.getNumColumns(); j++) {
+                if(board[i][j].getUnit()==unitToRemove){
+                    board[i][j].removeUnit();
+                }
+            }
+        }
+
+         opponentTeam.removeUnitsFromTeam(unitToRemove);
+
+
+        //opponentTeam.removeMostRecentAttacker();
 
 
         // Choose a new random BoardSquare as a PressurePlate
