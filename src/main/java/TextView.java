@@ -116,9 +116,9 @@ public class TextView {
         int numRows = game.getBoardSquares().length;
         int numCols = game.getBoardSquares()[0].length;
         System.out.println("Please enter your square's row index.");
-        this.fromRow = getValidInt(0, numRows, scnr);
+        this.fromRow = getValidInt(0, numRows-1, scnr);
         System.out.println("Please enter your square's column index.");
-        this.fromCol = getValidInt(0,numCols, scnr);
+        this.fromCol = getValidInt(0,numCols-1, scnr);
         String descript = "";
         if(action == 'M') {
             descript = "you will move to";
@@ -132,9 +132,9 @@ public class TextView {
             descript = "you will bark at";
         }
         System.out.println("Please enter the row index of the square " + descript + ".");
-        this.toRow = getValidInt(0, numRows, scnr);
+        this.toRow = getValidInt(0, numRows-1, scnr);
         System.out.println("Please enter the column index of the square " + descript + ".");
-        this.toCol = getValidInt(0, numCols, scnr);
+        this.toCol = getValidInt(0, numCols-1, scnr);
     }
     public void updateView(Game game) {
         System.out.println(game.toString());

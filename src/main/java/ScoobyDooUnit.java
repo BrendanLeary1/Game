@@ -29,7 +29,7 @@ public class ScoobyDooUnit extends Barker {
     }
 
     public ScoobyDooUnit spawn() {
-        ScoobyDooUnit scooby = new ScoobyDooUnit('S', "Scooby", 100.0,
+        ScoobyDooUnit scooby = new ScoobyDooUnit('D', "Scooby", 100.0,
                 5.0, 25.0, 10.0, 0, 1, 1, 1,
                 1, "Blue", 1, true);
         return scooby;
