@@ -32,10 +32,8 @@ public class Rules {
                          if(squares[toRow][toCol].isEmptySpace()) {
                              // Checks whether the move path is valid
                              if(fromUnit.validMovePath(fromRow, fromCol, toRow, toCol)) {
-                                 System.out.println("true");
                                  return true;
                              } else {
-                                 System.out.println("false");
                                  return false;
                              }
                          } else {

@@ -98,32 +98,36 @@ public class Controller {
     //instance method carryOutAction
     public void carryOutAction(int fromRow, int fromCol, int toRow, int toCol, char actionType){
         if(actionType == 'M'){
-            new ActionMove(game, fromRow, fromCol, toRow, toCol).performAction();
-            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionMove(game, fromRow, fromCol, toRow, toCol).toString());
+            ActionMove action = new ActionMove(game, fromRow, fromCol, toRow, toCol);
+            action.performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), "move", action.toString());
             gameList.push(new GameEventNode(gameEvent));
 
             GameEventNode eventNode = new GameEventNode(gameEvent);
             gameList.push(eventNode);
         }
         if(actionType == 'S'){
-            new ActionSpawn(game, fromRow, fromCol, toRow, toCol).performAction();
-            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionSpawn(game, fromRow, fromCol, toRow, toCol).toString());
+            ActionSpawn action = new ActionSpawn(game, fromRow, fromCol, toRow, toCol);
+            action.performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), "spawn", action.toString());
             gameList.push(new GameEventNode(gameEvent));
 
             GameEventNode eventNode = new GameEventNode(gameEvent);
             gameList.push(eventNode);
         }
         if(actionType == 'R'){
-            new ActionRecruit(game, fromRow, fromCol, toRow, toCol).performAction();
-            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionRecruit(game, fromRow, fromCol, toRow, toCol).toString());
+            ActionRecruit action = new ActionRecruit(game, fromRow, fromCol, toRow, toCol);
+            action.performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), "recruit", action.toString());
             gameList.push(new GameEventNode(gameEvent));
 
             GameEventNode eventNode = new GameEventNode(gameEvent);
             gameList.push(eventNode);
         }
         if(actionType == 'A'){
-            new ActionAttack(game, fromRow, fromCol, toRow, toCol).performAction();
-            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionAttack(game, fromRow, fromCol, toRow, toCol).toString());
+            ActionAttack action = new ActionAttack(game, fromRow, fromCol, toRow, toCol);
+            action.performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), "attack", action.toString());
             gameList.push(new GameEventNode(gameEvent));
 
             GameEventNode eventNode = new GameEventNode(gameEvent);
@@ -131,8 +135,9 @@ public class Controller {
         }
         // New Action Modification
         if(actionType == 'B'){
-            new ActionBark(game, fromRow, fromCol, toRow, toCol).performAction();
-            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionBark(game, fromRow, fromCol, toRow, toCol).toString());
+            ActionBark action = new ActionBark(game, fromRow, fromCol, toRow, toCol);
+            action.performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), "bark", action.toString());
             gameList.push(new GameEventNode(gameEvent));
 
             GameEventNode eventNode = new GameEventNode(gameEvent);
@@ -171,10 +176,10 @@ public class Controller {
             System.out.println("Winning Move: " + lastNode.getGameState().getEventDetails());
         }
 
-        ArrayList<GameEventsLinkedList> eventLists = new ArrayList<GameEventsLinkedList>();
+    ArrayList<GameEventsLinkedList> eventLists = new ArrayList<GameEventsLinkedList>();
+    String[] eventTypes = { "move", "spawn", "recruit", "attack", "bark" }; // Assuming these are the event types
 
-        String[] eventTypes = { "M", "S", "R", "A", "B" }; // Assuming these are the event types
-
+    view.printEndOfGameMessage(game);
     for (String eventType : eventTypes) {
         GameEventsLinkedList eventTypeList = gameList.pop(eventType);
         eventLists.add(eventTypeList);
@@ -183,13 +188,14 @@ public class Controller {
     Collections.sort(eventLists);
 
     for (GameEventsLinkedList eventList : eventLists) {
-        System.out.println("EventType: " + eventList.getHead().getGameState().getEventType() + ", Size: " + eventList.getSize());
+        System.out.println("EventType: " + eventList.getHead().getGameState().getEventType() +
+                    ", Size: " + eventList.getSize());
+        }
+
     }
 
         //print message of player who won
-        game.getWinner();
         //TK add main
-    }
 
     public static void main(String[] args) {
         Controller controller = new Controller();

@@ -84,9 +84,9 @@ public class TomJerryUnit extends Attacker {
         if ((fromRow == toRow) && (toCol == fromCol)) {
             return false;
         }
-        return (((fromRow == toRow) && (fromCol != toCol)) ^ ((fromCol == toCol) && (
+        return (((fromRow == toRow)  ^ ((fromCol == toCol) && (
                 ( (2 >= (toRow - fromRow)) && ((toRow - fromRow) >= 0) ) ||
-                        ( (2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)) )));
+                        ( (2 >= (fromRow - toRow)) && ((fromRow - toRow) >= 0)) ))));
 
     }
 }

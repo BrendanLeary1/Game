@@ -141,12 +141,7 @@ public class TextView {
 
     public void printEndOfGameMessage(Game game) {
         if(game.isGameEnded()) {
-            int winningNum;
-            if(game.getCurrentPlayer().getPlayersTeam().getTeamUnits().size() > 0) {
-                winningNum = game.getCurrentPlayer().getPlayerNumber();
-            } else {
-                winningNum = game.getOpponentPlayer().getPlayerNumber();
-            }
+            int winningNum = game.getWinner().getPlayerNumber();
             System.out.println("Congratulations to player " + winningNum + " for winning the game.\nEnd of game.");
         }
     }

@@ -27,11 +27,17 @@ public class ActionAttack extends Action{
                 ((TomJerryUnit) attacked).takeDamage(((TomJerryUnit) attacker).dealDamage());
                 // Added line below to make sure there's not an invisible army of TomJerryUnits
                 ((TomJerryUnit) attacker).setHiding(false);
-                if (attacker.getHealth() <= 0) {
+                if (attacked.getHealth() <= 0) {
                     game.getGameBoard().getSquares()[toRow][toCol].removeUnit();
                     otherPlayer.getPlayersTeam().removeUnitsFromTeam(attacked);
                     game.getGameBoard().getSquares()[fromRow][fromCol].removeUnit();
                     game.getGameBoard().getSquares()[toRow][toCol].setUnit(attacker);
+                    game.changeTurn();
+                    System.out.println(game.toString());
+                }
+                else {
+                    System.out.println("Did not defeat " + attacked.getName() + "! It has " +
+                            attacked.getHealth() + " more health.");
                     game.changeTurn();
                     System.out.println(game.toString());
                 }
