@@ -41,7 +41,6 @@ public class TextView {
     }
 
     public char getAction() {
-        System.out.println(this.action);
         return action;
     }
 
@@ -54,7 +53,7 @@ public class TextView {
      * @param scnr - Scanner for user input
      * @return - The character "A", "M", "R", or "S"
      */
-    public static char getUsersNextActionType (Scanner scnr) {
+    public char getUsersNextActionType (Scanner scnr) {
         boolean isIncorrectChar = true;
         char charValue = ' ';
         while (isIncorrectChar) {
@@ -68,6 +67,7 @@ public class TextView {
                 charValue = scnr.next().toUpperCase().charAt(0);
             }
         }
+        this.action = charValue;
         return charValue;
     }
 
@@ -135,13 +135,6 @@ public class TextView {
         this.toRow = getValidInt(0, numRows, scnr);
         System.out.println("Please enter the column index of the square " + descript + ".");
         this.toCol = getValidInt(0, numCols, scnr);
-        while (! Rules.checkValidAction(game, this.fromRow, this.fromCol, this.toRow, this.toCol, action)) {
-            System.out.println("Please enter a valid action.");
-            System.out.println("Please enter the row index of the square " + descript + ".");
-            this.toRow = getValidInt(0, numRows, scnr);
-            System.out.println("Please enter the column index of the square " + descript + ".");
-            this.toCol = getValidInt(0, numCols, scnr);
-        }
     }
     public void updateView(Game game) {
         System.out.println(game.toString());
