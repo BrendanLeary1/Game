@@ -148,14 +148,22 @@ public class Controller {
     public void playGame() {
         while (! game.isGameEnded()) {
             view.getNextPlayersAction(game);
-            while (!Rules.checkValidAction(game, view.getFromRow(), view.getFromCol(), view.getToRow(), view.getToCol(), view.getAction())) {
-                view.getNextPlayersAction(game);
-            }
-            //calls carryOutAction
-            carryOutAction(view.getFromRow(), view.getFromCol(), view.getToRow(), view.getToCol(), view.getAction());
+            boolean isValidAction = false;
+            //while (! isValidAction) {
+            //    if (Rules.checkValidAction(game, view.getFromRow(), view.getFromCol(), view.getToRow(), view.getToCol(), view.getAction())) {
+            //        carryOutAction(view.getFromRow(), view.getFromCol(), view.getToRow(), view.getToCol(), view.getAction());
+            //        System.out.println("yippee");
+            //        isValidAction = true;
+            //    }
+            //    else {
+            //        System.out.println("skill issue");
+            //        view.getNextPlayersAction(game);
+            //    }
+            //}
             //print Game objecct
             System.out.println(game.toString());
             //if game is not ended Repeat above
+            game.changeTurn();
         }
 
         GameEventNode lastNode = gameList.pop();

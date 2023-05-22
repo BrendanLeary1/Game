@@ -15,6 +15,7 @@ public class Rules {
     public static boolean checkValidAction(Game game, int fromRow, int fromCol, int toRow, int toCol, char action)  {
         // Checks if the action char is not one of the valid options (M,S,R,A,B)
          if (!( (action == 'M' || action == 'S') || (action == 'R' || action == 'A') || action == 'B') ) {
+             System.out.println("cry about it");
              return false;
          } else {
              // Assesses whether the From Unit is in bounds and contains a unit
@@ -32,8 +33,10 @@ public class Rules {
                          if(squares[toRow][toCol].isEmptySpace()) {
                              // Checks whether the move path is valid
                              if(fromUnit.validMovePath(fromRow, fromCol, toRow, toCol)) {
+                                 System.out.println("true");
                                  return true;
                              } else {
+                                 System.out.println("false");
                                  return false;
                              }
                          } else {
