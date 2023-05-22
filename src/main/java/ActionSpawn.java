@@ -21,6 +21,8 @@ public class ActionSpawn extends Action{
             Unit guy = game.getGameBoard().getSquares()[fromRow][fromCol].getUnit().spawn();
             game.getCurrentPlayer().getPlayersTeam().addUnitsToTeam(guy);
             game.getGameBoard().getSquares()[toRow][toCol].setUnit(guy);
+            game.changeTurn();
+            System.out.println(game.toString());
         }
     }
 

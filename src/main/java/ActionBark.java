@@ -77,6 +77,8 @@ public class ActionBark extends Action {
                         game.getGameBoard().getSquares()[toRow + 1][toCol].setUnit(temp);
                         this.toRow += 1;
                     }
+                    game.changeTurn();
+                    System.out.println(game.toString());
                 }
             }
         }

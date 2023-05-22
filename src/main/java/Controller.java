@@ -158,10 +158,10 @@ public class Controller {
                     view.getNextPlayersAction(game);
                 }
             }
-            game.changeTurn();
 
             //print Game objecct
-            System.out.println(game.toString());
+            // game.changeTurn();
+            // System.out.println(game.toString());
             //if game is not ended Repeat above
 
         }
