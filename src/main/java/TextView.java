@@ -132,7 +132,7 @@ public class TextView {
         this.toCol = getValidInt(0, numCols, scnr);
     }
     public void updateView(Game game) {
-        System.out.println(game);
+        System.out.println(game.toString());
     }
 
     public void printEndOfGameMessage(Game game) {

@@ -89,8 +89,8 @@ public class Controller {
 
     //0 param
     public Controller(){
-        game = setUpGameModel();
-        view = new TextView();
+        this.game = setUpGameModel();
+        this.view = new TextView();
         gameList = new GameEventsLinkedList();
         view.updateView(game);
     }
@@ -157,7 +157,7 @@ public class Controller {
             System.out.println(game);
             //if game is not ended Repeat above
         }
-        //Before calling printEndOfGameMessage() at the end of playGame, pop the last node and print its event details with the prefix “Winning Move: ”.
+
         GameEventNode lastNode = gameList.pop();
         if (lastNode != null) {
             System.out.println("Winning Move: " + lastNode.getGameState().getEventDetails());

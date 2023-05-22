@@ -54,7 +54,7 @@ public class GameBoard {
         BoardSquare temp = this.squares[(int) (Math.random() * (numRows - 1))][(int) (Math.random() * (numColumns - 1))];
         boolean foundEmptySquare = false;
         while (! foundEmptySquare) {
-            if (temp.isEmptySpace()) {
+            if (! temp.isEmptySpace()) {
                 temp = this.squares[(int) (Math.random() * (numRows - 1))][(int) (Math.random() * (numColumns - 1))];
             }
             else {
