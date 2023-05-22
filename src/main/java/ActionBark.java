@@ -41,6 +41,7 @@
  */
 
 public class ActionBark extends Action {
+
     public ActionBark(Game game, int fromRow, int fromCol, int toRow, int toCol) {
         super(game, fromRow, fromCol, toRow, toCol);
     }
@@ -57,6 +58,7 @@ public class ActionBark extends Action {
                 int rowLength = game.getBoardSquares()[0].length;
                 if(((direction == 'L' && toCol == 0) || (direction == 'R' && toCol == colLength - 1))
                         || ((direction == 'U' && toRow == 0) || (direction == 'D' && toRow == rowLength - 1))) {
+                    game.getOpponentPlayer().getPlayersTeam().removeUnitsFromTeam(game.getBoardSquares()[toRow][toCol].getUnit());
                     // New Rule Modification
                     // If the opposing player is barked off of the board,
                     // they lose their piece and also lose a turn (the turn is not switched back to them)
@@ -64,12 +66,16 @@ public class ActionBark extends Action {
                 } else {
                     if (direction == 'L') {
                         game.getGameBoard().getSquares()[toRow][toCol - 1].setUnit(temp);
+                        this.toCol -= 1;
                     } else if (direction == 'R') {
                         game.getGameBoard().getSquares()[toRow][toCol + 1].setUnit(temp);
+                        this.toCol += 1;
                     } else if (direction == 'U') {
                         game.getGameBoard().getSquares()[toRow - 1][toCol].setUnit(temp);
+                        this.toRow -= 1;
                     } else if (direction == 'D') {
                         game.getGameBoard().getSquares()[toRow + 1][toCol].setUnit(temp);
+                        this.toRow += 1;
                     }
                 }
             }
@@ -78,6 +84,12 @@ public class ActionBark extends Action {
 
     @Override
     public String toString() {
+        if(game.getBoardSquares()[toRow][toCol].isEmptySpace()) {
+            return game.getCurrentPlayer().getPlayersTeam().getTeamColor() + " team's " +
+                    game.getBoardSquares()[fromRow][fromCol].getUnit().getName() + " unit barked " +
+                    game.getOpponentPlayer().getPlayersTeam().getTeamColor() + " team's piece off of the board. " +
+                    game.getOpponentPlayer().getPlayersTeam().getTeamColor() + " loses a turn!";
+        }
         return game.getCurrentPlayer().getPlayersTeam().getTeamColor() + " team's " +
                 game.getBoardSquares()[fromRow][fromCol].getUnit().getName() + " unit barks from " +
                 fromRow + "," + fromCol + "and is barking at " +
