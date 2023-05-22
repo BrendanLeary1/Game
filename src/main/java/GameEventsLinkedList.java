@@ -52,7 +52,7 @@ class GameEventNode {
         this.next = next;
     }
 }
-public class GameEventsLinkedList {
+public class GameEventsLinkedList implements Comparable<GameEventsLinkedList>{
     protected GameEventNode head; // first game event
     protected int size; // size of the linked list
 
@@ -164,5 +164,10 @@ public class GameEventsLinkedList {
             System.out.println(current.getGameState().getEventDetails());
             current = current.getNext();
         }
+    }
+
+    @Override
+    public int compareTo(GameEventsLinkedList other){
+        return Integer.compare(other.getSize(), this.size);
     }
 }

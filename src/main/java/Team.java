@@ -49,6 +49,21 @@ public class Team {
         addedUnit.teamColor = this.teamColor;
     }
 
+    public void removeMostRecentAttacker() {
+        Unit mostRecentAttacker = null;
+        for (Unit unit : teamUnits) {
+            if (unit instanceof Attacker) {
+                if (mostRecentAttacker == null) {
+                    mostRecentAttacker = unit;
+                }
+            }
+        }
+
+        if (mostRecentAttacker != null) {
+            teamUnits.remove(mostRecentAttacker);
+        }
+    }
+
     @Override
     public String toString() {
         String units = "";

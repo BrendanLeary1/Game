@@ -12,10 +12,13 @@
  */
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Controller {
     private Game game;
     private TextView view;
+
+    private GameEventsLinkedList gameList;
 
     public Game setUpGameModel(){
         // Create 4 pieces for team A
@@ -88,6 +91,7 @@ public class Controller {
     public Controller(){
         game = setUpGameModel();
         view = new TextView();
+        gameList = new GameEventsLinkedList();
         view.updateView(game);
     }
 
@@ -95,20 +99,48 @@ public class Controller {
     public void carryOutAction(int fromRow, int fromCol, int toRow, int toCol, char actionType){
         if(actionType == 'M'){
             new ActionMove(game, fromRow, fromCol, toRow, toCol).performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionMove(game, fromRow, fromCol, toRow, toCol).toString());
+            gameList.push(new GameEventNode(gameEvent));
+
+            GameEventNode eventNode = new GameEventNode(gameEvent);
+            gameList.push(eventNode);
         }
         if(actionType == 'S'){
             new ActionSpawn(game, fromRow, fromCol, toRow, toCol).performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionSpawn(game, fromRow, fromCol, toRow, toCol).toString());
+            gameList.push(new GameEventNode(gameEvent));
+
+            GameEventNode eventNode = new GameEventNode(gameEvent);
+            gameList.push(eventNode);
         }
         if(actionType == 'R'){
             new ActionRecruit(game, fromRow, fromCol, toRow, toCol).performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionRecruit(game, fromRow, fromCol, toRow, toCol).toString());
+            gameList.push(new GameEventNode(gameEvent));
+
+            GameEventNode eventNode = new GameEventNode(gameEvent);
+            gameList.push(eventNode);
         }
         if(actionType == 'A'){
             new ActionAttack(game, fromRow, fromCol, toRow, toCol).performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionAttack(game, fromRow, fromCol, toRow, toCol).toString());
+            gameList.push(new GameEventNode(gameEvent));
+
+            GameEventNode eventNode = new GameEventNode(gameEvent);
+            gameList.push(eventNode);
         }
         // New Action Modification
         if(actionType == 'B'){
             new ActionBark(game, fromRow, fromCol, toRow, toCol).performAction();
+            GameEvent gameEvent = new GameEvent(game.getCurrentPlayer().getPlayerNumber(), String.valueOf(actionType), new ActionBark(game, fromRow, fromCol, toRow, toCol).toString());
+            gameList.push(new GameEventNode(gameEvent));
+
+            GameEventNode eventNode = new GameEventNode(gameEvent);
+            gameList.push(eventNode);
         }
+        //problem 6
+
+
     }
 
     //public method names playyGame
@@ -125,6 +157,26 @@ public class Controller {
             System.out.println(game);
             //if game is not ended Repeat above
         }
+        //Before calling printEndOfGameMessage() at the end of playGame, pop the last node and print its event details with the prefix “Winning Move: ”.
+        GameEventNode lastNode = gameList.pop();
+        if (lastNode != null) {
+            System.out.println("Winning Move: " + lastNode.getGameState().getEventDetails());
+        }
+
+        ArrayList<GameEventsLinkedList> eventLists = new ArrayList<GameEventsLinkedList>();
+
+        String[] eventTypes = { "M", "S", "R", "A", "B" }; // Assuming these are the event types
+
+    for (String eventType : eventTypes) {
+        GameEventsLinkedList eventTypeList = gameList.pop(eventType);
+        eventLists.add(eventTypeList);
+    }
+
+    Collections.sort(eventLists);
+
+    for (GameEventsLinkedList eventList : eventLists) {
+        System.out.println("EventType: " + eventList.getHead().getGameState().getEventType() + ", Size: " + eventList.getSize());
+    }
 
         //print message of player who won
         game.getWinner();
