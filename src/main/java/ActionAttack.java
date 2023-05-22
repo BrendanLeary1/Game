@@ -47,10 +47,8 @@ public class ActionAttack extends Action{
     @Override
     public String toString() {
         return game.getCurrentPlayer().getPlayersTeam().getTeamColor() + " team's " +
-                game.getBoardSquares()[fromRow][fromCol].getUnit().getName() + " unit attacks from " +
-                fromRow + "," + fromCol + "and is attacking " +
-                game.getOpponentPlayer().getPlayersTeam().getTeamColor() + " team's " +
-                game.getBoardSquares()[toRow][toCol].getUnit().getName() + " unit at " + toRow +
-                "," + toCol;
+                game.getBoardSquares()[toRow][toCol].getUnit().getName() + " unit defeated the piece at " +
+                toRow + "," + toCol;
     }
 }
+

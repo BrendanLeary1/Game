@@ -59,7 +59,6 @@ public class TextView {
         while (isIncorrectChar) {
             System.out.println("Please press one of the following:\n - 'A' to Attack\n - 'M' to Move\n - 'R' to Recruit\n - 'S' to Spawn\n - 'B' to Bark");
             charValue = scnr.next().toUpperCase().charAt(0);
-            System.out.println(charValue);
             if (((charValue == 'A') || (charValue == 'M')) || ((charValue == 'R') || (charValue == 'S')) || (charValue == 'B')) {
                 isIncorrectChar = false;
             }
