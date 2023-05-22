@@ -13,6 +13,11 @@
 public class ActionMove extends Action{
     public ActionMove(Game game, int fromRow, int fromCol, int toRow, int toCol) {
         super(game, fromRow, fromCol, toRow, toCol);
+        if(game.getGameBoard().getSquares()[toRow][toCol].getPlate()){
+            System.out.println("YOU'VE ACTIVATED A PRESSURE PLATE");
+            game.getGameBoard().getSquares()[toRow][toCol].setPlate(false);
+            game.setNewPressurePlate();
+        }
     }
 
     @Override

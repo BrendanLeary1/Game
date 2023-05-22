@@ -2,9 +2,11 @@ public class BoardSquare {
     private boolean emptySpace;
     private Unit unit;
     private String squareColor;
+    public boolean isPlate;
     public BoardSquare(String squareColor) {
         this.squareColor = squareColor;
         this.emptySpace = true;
+        this.isPlate = false;
     }
 
     public Unit getUnit(){
@@ -21,6 +23,14 @@ public class BoardSquare {
     }
     public void setEmptySpace(boolean emptySpace) {
         this.emptySpace = emptySpace;
+    }
+
+    public void setPlate(boolean plate) {
+        isPlate = plate;
+    }
+
+    public boolean getPlate(){
+        return this.isPlate;
     }
 
     public void setUnit(Unit unit) {

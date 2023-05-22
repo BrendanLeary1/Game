@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class GameBoard {
     private int numRows;
@@ -65,6 +66,28 @@ public class GameBoard {
     }
 
     // toString method from instructions with added @Override
+    // random board square when a piece ands on it,
+    /**
+     public void setNewPressurePlate() {
+     Random random = new Random();
+     int randomRow = random.nextInt(numRows);
+     int randomCol = random.nextInt(numColumns);
+     BoardSquare randomSquare = squares[randomRow][randomCol];
+     randomSquare.setPressurePlate(true);
+
+     Player opponentPlayer = game.getOpponentPlayer();
+     Team enemyTeam = opponentPlayer.getPlayersTeam();
+     if (enemyTeam.getTeamUnits().size() > 0) {
+     int randomIndex = random.nextInt(enemyTeam.getTeamUnits().size());
+     Unit randomAttacker = enemyTeam.getTeamUnits().get(randomIndex);
+     enemyTeam.removeUnit(randomAttacker);
+     }
+
+     BoardSquare newPressurePlate = findRandomEmptySpace();
+     newPressurePlate.setPressurePlate(true);
+     }
+     **/
+
     @Override
     public String toString(){
         StringBuilder boardString = new StringBuilder();
