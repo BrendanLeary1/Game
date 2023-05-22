@@ -20,12 +20,6 @@ public class ActionMove extends Action{
         Unit dummy = game.getGameBoard().getSquares()[fromRow][fromCol].getUnit();
         game.getGameBoard().getSquares()[fromRow][fromCol].removeUnit();
         game.getGameBoard().getSquares()[toRow][toCol].setUnit(dummy);
-        //enemy check
-        BoardSquare destinationSquare = game.getGameBoard().getSquares()[toRow][toCol];
-        if (!destinationSquare.isEmptySpace() && !destinationSquare.getUnit().getTeamColor().equals(dummy.getTeamColor())) {
-            Team opponentTeam = game.getOpponentPlayer().getPlayersTeam();
-            opponentTeam.removeMostRecentAttacker();
-        }
         System.out.println(game.toString());
         game.changeTurn();
     }

@@ -154,7 +154,7 @@ public class Controller {
             //calls carryOutAction
             carryOutAction(view.getFromRow(), view.getFromCol(), view.getToRow(), view.getToCol(), view.getAction());
             //print Game objecct
-            System.out.println(game);
+            System.out.println(game.toString());
             //if game is not ended Repeat above
         }
 
