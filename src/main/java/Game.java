@@ -20,7 +20,9 @@ public class Game {
             //unit.setSquare(square);
         }
         //make plate
-        this.gameBoard.findRandomEmptySpace().setPlate(true);
+        //for sake of example
+        this.gameBoard.getSquares()[1][1].setPlate(true);
+        //this.gameBoard.findRandomEmptySpace().setPlate(true);
     }
 
     public Game(int rows, int cols, Player playerOne, Player playerTwo) {
