@@ -185,6 +185,9 @@ public class Controller {
         eventLists.add(eventTypeList);
     }
 
+    // The issue we had here was getting it to show a size of 0 for any eventTypes that happened 0 times, which can
+    //be seen in the video demonstrating the win condition.
+
     Collections.sort(eventLists);
 
     for (GameEventsLinkedList eventList : eventLists) {

@@ -59,6 +59,7 @@ public class ActionBark extends Action {
                 if(((direction == 'L' && toCol == 0) || (direction == 'R' && toCol == colLength - 1))
                         || ((direction == 'U' && toRow == 0) || (direction == 'D' && toRow == rowLength - 1))) {
                     game.getOpponentPlayer().getPlayersTeam().removeUnitsFromTeam(game.getBoardSquares()[toRow][toCol].getUnit());
+                    game.getGameBoard().getSquares()[toRow][toCol].removeUnit();
                     // New Rule Modification
                     // If the opposing player is barked off of the board,
                     // they lose their piece and also lose a turn (the turn is not switched back to them)
